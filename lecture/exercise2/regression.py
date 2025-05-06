@@ -8,7 +8,7 @@ import seaborn as sns
 
 # Scikit-learn libraries
 from sklearn.datasets import load_iris
-from sklearn.tree import DecisionTreeRegressor
+from sklearn.tree import DecisionTreeRegressor, plot_tree
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
 
@@ -50,3 +50,16 @@ print("Mean absolute Error:", mse)
 
 # Print model parameters
 print("Model Parameters:\n", model.get_params())
+
+
+# Plot the tree
+plt.figure(figsize=(12, 8))
+plot_tree(
+    model,
+    feature_names= features,
+    filled=True,
+    rounded=True,
+    fontsize=10
+)
+plt.title("Decision Tree Regressor on Iris Dataset")
+plt.show()
