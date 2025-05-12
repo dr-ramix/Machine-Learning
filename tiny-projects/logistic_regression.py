@@ -6,28 +6,27 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
-# Step 1: Load Iris dataset
+# Load Iris dataset
 iris = datasets.load_iris()
 X = iris.data
 y = iris.target
 feature_names = iris.feature_names
 target_names = iris.target_names
 
-# Step 2: Use only classes 0 (Setosa) and 1 (Versicolor)
+#Use only classes 0 (Setosa) and 1 (Versicolor)
 X = X[y != 2]
 y = y[y != 2]
 
-# Optional: use only first two features for easier plotting
 X = X[:, :2]  # sepal length and sepal width
 
-# Step 3: Split into train/test sets
+ Split into train/test sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
-# Step 4: Train logistic regression
+# Train logistic regression
 model = LogisticRegression()
 model.fit(X_train, y_train)
 
-# Step 5: Predictions
+# Predictions
 y_pred = model.predict(X_test)
 
 # Step 6: Evaluate
@@ -35,7 +34,7 @@ print("Accuracy:", accuracy_score(y_test, y_pred))
 print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
 print("Classification Report:\n", classification_report(y_test, y_pred))
 
-# Step 7: Plot decision boundary
+# Plot decision boundary
 x_min, x_max = X[:, 0].min() - .5, X[:, 0].max() + .5
 y_min, y_max = X[:, 1].min() - .5, X[:, 1].max() + .5
 xx, yy = np.meshgrid(np.linspace(x_min, x_max, 200),

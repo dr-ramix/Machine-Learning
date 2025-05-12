@@ -19,11 +19,11 @@ for i, degree in enumerate(degrees, 1):
     # Create polynomial features and fit the model
     model = make_pipeline(PolynomialFeatures(degree), LinearRegression())
     model.fit(X, y)
-    
+
     # Generate predictions
     X_test = np.linspace(0, 5, 100).reshape(-1, 1)
     y_pred = model.predict(X_test)
-    
+
     # Plot
     plt.subplot(1, 3, i)
     plt.scatter(X, y, color='gray', label='Data')
