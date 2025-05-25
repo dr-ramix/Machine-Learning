@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 # Define theta values
-theta0 = 0
+theta0 = 1
 theta1 = 1
 theta2 = 1
 
