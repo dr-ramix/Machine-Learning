@@ -12,6 +12,8 @@ from sklearn.model_selection import train_test_split
 
 
 #Creating a synthetic dataset
+
+#TRAINING DATA
 np.random.seed(43)
 # Generate Feature date
 x_train = np.linspace(10, 15, num=50)
@@ -21,6 +23,8 @@ y_train = 10 + 3 * np.sin(0.15 * math.pi * x_train)
 y_train += np.random.normal(loc=0.0, scale=0.5, size=len(x_train))
 # Create a DataFrame for training data
 data_train = pd.DataFrame({"y": y_train, "x": x_train})
+
+#TESTING DATA
 #For Testing, we will use a different seed to generate new data
 np.random.seed(2238)
 x_test = np.linspace(10, 15, num=50)
@@ -28,7 +32,6 @@ y_test = 10 + 3 * np.sin(0.15 * math.pi * x_test)
 y_test += np.random.normal(loc=0.0, scale=0.5, size=len(x_test))
 data_test = pd.DataFrame({"y": y_test, "x": x_test})
 
-print("Training data shape:", data_test[['x']])
 
 def evaluate_model_with_mse(model, train_set, test_set) -> str:
 
